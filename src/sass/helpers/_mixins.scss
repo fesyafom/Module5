@@ -1,0 +1,58 @@
+@mixin slider_button ($side) {
+  display: none;
+  box-sizing: border-box;
+  height: 587px;
+  width: 20%;
+  padding-top: 293px;
+  z-index: 20;
+  color: black;
+  text-align: center;
+  position: absolute;
+  top: 252px;
+  #{$side}: 0;
+}
+
+@mixin rect_button ($height, $bg_color,$font_family,$font_color,$font_size,$font_weight) {
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  height: $height;
+  border-radius: 5px;
+  border-style: hidden;
+  background-color: $bg_color;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  line-height: $height;
+  color: $font_color;
+  font-family: $font_family;
+  font-size: $font_size;
+  font-weight: $font_weight;
+}
+
+@mixin crcl_button ($height, $bg_color,$font_family,$font_color,$font_size,$font_weight) {
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  height: $height;
+  width: $height;
+  border-radius: 50%;
+  border-style: hidden;
+  background-color: $bg_color;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: $height;
+  color: $font_color;
+  font-family: $font_family;
+  font-size: $font_size;
+  font-weight: $font_weight;
+}
+
+@mixin bg_image ($image_name) {
+  background-image: url('../../images/#{$image_name}');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

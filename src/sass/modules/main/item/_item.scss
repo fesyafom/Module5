@@ -1,0 +1,35 @@
+.item {
+  border: 1px solid black;
+  width: 29.33%;
+  float: left;
+  box-sizing: border-box;
+  margin: 2%;
+
+  &__img {
+    border: 1px solid black;
+    display: block;
+    margin: 5% auto;
+    width: 90%;
+    height: 183px;
+  }
+
+  &__name {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__ability {
+    @include rect_button(30px,$dark_blue,$sans,$white,16px,$norm);
+    display: inline-block;
+    text-transform: capitalize;
+    margin: 0 2% 15px 2%;
+    width: 46%;
+  }
+
+  &__ico {
+    font-size: 28px;
+    display: block;
+    margin: 0 5% 10px;
+  }
+}

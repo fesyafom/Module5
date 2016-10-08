@@ -1,0 +1,41 @@
+.main {
+  float: left;
+  box-sizing: border-box;
+  width: 70%;
+
+  &-tab {
+    border-bottom: 1px solid #ddd;
+
+    &__button {
+      border: none;
+      background-color: white;
+      height: 50px;
+      font-size: 20px;
+
+      &:hover {
+        z-index: 20;
+        border-radius: 5px 5px 0 0;
+        border: 1px solid #ddd;
+        border-bottom: none;
+        margin-bottom: -1px;
+      }
+    }
+  }
+
+  &-pokemon_list {
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  &__lead_more {
+    @include rect_button(50px,$dark_blue,$sans,$white,16px,$norm);
+    text-transform: capitalize;
+    margin: 0 auto 25px auto;
+    width: 94%;
+  }
+}
+
+@import 'item/_item';

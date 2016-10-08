@@ -3,21 +3,25 @@ import { bindActionCreators } from 'redux'
 import { connect } from	'react-redux'
 import * as pageActions from '../../actions/MainActions'
 import Item from './Item'
+import {
+    URL_POKEMONES_LIST,
+    URL_ONE_POKEMONE,
+} from '../../constants/Sources'
 
 class Main extends Component {
     componentDidMount()	{
-        this.props.pageActions.getPokemonsList("http://pokeapi.co/api/v1/pokemon/?limit=12");
+        this.props.pageActions.getPokemonsList(URL_POKEMONES_LIST);
         this.props.pageActions.getLikes();
     }
     
     onClickHandler(e) {
         e.preventDefault();
-        this.props.pageActions.getAdditionalInfo("http://pokeapi.co/api/v1/pokemon/" + this.props.isSelected + "/");
+        this.props.pageActions.getAdditionalInfo(URL_ONE_POKEMONE + this.props.isSelected + "/");
     }
 
     GetAllPokemons(e) {
         e.preventDefault();
-        this.props.pageActions.getPokemonsList("http://pokeapi.co/api/v1/pokemon/?limit=12");
+        this.props.pageActions.getPokemonsList(URL_POKEMONES_LIST);
     }
     
     GetLikedPokemons(e) {

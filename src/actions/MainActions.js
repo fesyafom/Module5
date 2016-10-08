@@ -99,15 +99,9 @@ function savePokemon(dispatch,url) {
                     });
                     return;
                 }
-
+                
                 response.json().then(function (result) {
                     localStorage.setItem(result.pkdx_id, JSON.stringify(result));
-
-
-                    dispatch({
-                        type: "fewfewfw",
-                        payload: result
-                    });
                 });
             }
         )
@@ -145,6 +139,11 @@ export function selectPokemon(pokemonId) {
 
 export function getAdditionalInfo(url) {
     return (dispatch) => {
+        dispatch({
+            type: GET_POKEMON_REQUEST,
+            payload: null
+        });
+        
         getPokemon(dispatch,url);
     }
 }

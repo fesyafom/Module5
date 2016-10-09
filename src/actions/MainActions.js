@@ -2,13 +2,20 @@ import {
     GET_POKEMONS_REQUEST,
     GET_POKEMONS_SUCCESS,
     GET_POKEMONS_FAIL,
+    FILTER_BY_TYPE
+} from '../constants/Main'
+
+import {
     GET_POKEMON_REQUEST,
     GET_POKEMON_SUCCESS,
     GET_POKEMON_FAIL,
     SELECT_POKEMON,
+} from '../constants/OneItem'
+
+import {
     LIKE_POKEMON,
     UNLIKE_POKEMON
-} from '../constants/Main'
+} from '../constants/Likes'
 
 function objToArray (obj) {
     let arr = [];
@@ -116,15 +123,20 @@ function savePokemon(dispatch,url) {
 
 export function getPokemonsList(url="localStorage") {
     return (dispatch) => {
-        dispatch({
-            type: GET_POKEMONS_REQUEST,
-            payload: null
-        });
-        
         if(url==="localStorage") {
+            dispatch({
+                type: GET_POKEMONS_REQUEST,
+                payload: 1
+            });
             getDataFromLS(dispatch);
         }
-        else getData(dispatch,url);
+        else {
+            dispatch({
+                type: GET_POKEMONS_REQUEST,
+                payload: 0
+            });
+            getData(dispatch,url);
+        }
     }
 }
 
@@ -184,3 +196,11 @@ export function getLikes() {
     }
 }
 
+export function filterByType(value) {
+    return (dispatch) => {
+        dispatch({
+            type: FILTER_BY_TYPE,
+            payload: value
+        });
+    }
+}

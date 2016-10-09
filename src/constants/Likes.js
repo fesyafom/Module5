@@ -1,0 +1,2 @@
+export const LIKE_POKEMON = 'LIKE_POKEMON';
+export const UNLIKE_POKEMON = 'UNLIKE_POKEMON';

@@ -32,7 +32,10 @@ class Main extends Component {
     render() {
         let data = this.props.data;
         let pokemonsTemplate;
-        if (data.length > 0) {
+        if(this.props.loaded === false) {
+            pokemonsTemplate = <li >Loading...</li>
+        }
+        else if (data.length > 0) {
             pokemonsTemplate = data.map(function (item, index) {
                 return (
                     <Item data={item} key={item.pkdx_id}/>
@@ -45,13 +48,15 @@ class Main extends Component {
         return (
             <div className="main">
                 <div className="main-tab">
-                    <button className="main-tab__button"
+                    <button 
+                            className={"main-tab__button " + (this.props.activeTab === 0 ? 'tab_active':'')}
                             onClick={this.GetAllPokemons.bind(this)}
-                    >All
+                    >All Pokemons
                     </button>
-                    <button className="main-tab__button"
+                    <button
+                            className={"main-tab__button " + (this.props.activeTab === 1 ? 'tab_active':'')}
                             onClick={this.GetLikedPokemons.bind(this)}
-                    >Liked
+                    >Only Liked
                     </button> 
                 </div>
                 
@@ -69,8 +74,10 @@ class Main extends Component {
 
 function mapStateToProps (state)	{
     return	{
-        isSelected: state.main.isSelected,
-        data: state.main.data
+        isSelected: state.oneItem.isSelected,
+        activeTab: state.main.activeTab,
+        data: state.main.data,
+        loaded: state.main.loaded
     }
 }
 

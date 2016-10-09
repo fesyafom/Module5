@@ -5,7 +5,7 @@ var	path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    devtool: null,            //Определяет тип файла map. Дефолт - source-map
+    devtool: null,            
 
     context: __dirname,
     entry: {
@@ -15,32 +15,31 @@ module.exports = {
     output: {
         path: './static',
         filename: 'js/[name].js',
-        //sourceMapFileName: 'js/[name].map'     //Создает файл-карту модулей для source-map
     },
 
     plugins: [
         new	webpack.optimize.OccurenceOrderPlugin(),
         new	webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin('styles.css', {   //Сохраняем преобразованные файлы в styles.css
+        new ExtractTextPlugin('styles.css', {   
             allChunks: true
         }),
-        /*
-        new webpack.optimize.UglifyJsPlugin({   //Сжатие кода
+        
+        new webpack.optimize.UglifyJsPlugin({   
             compress: {
                 warnings: false,
                 drop_console: true,
                 unsafe: true
             }
         })
-        */
+        
     ],
 
-    resolve: {                                  //Фильтр для поиска модулей(не обязательно)
+    resolve: {                                  
         moduleDirectories: ['node_modules'],
         extensions: ['','.js']
     },
     
-    resolveLoader: {                            //Фильтр для поиска лоадеров(не обязательно)
+    resolveLoader: {                           
         moduleDirectories: ['node_modules'],
         extensions: ['','.js']
     },
@@ -73,9 +72,9 @@ module.exports = {
             }
         ]
     },
-    watch: true,                //Будет следить за изменениями
+    watch: true,                
 
     watchOptions: {
-        aggregateTimeout: 100   //Задает таймаут применения изменений. Дефолт - 300мс
+        aggregateTimeout: 100   
     }
 };

@@ -10,7 +10,7 @@
     display: block;
     margin: 5% auto;
     width: 90%;
-    height: 183px;
+    cursor: pointer;
   }
 
   &__name {
@@ -20,16 +20,31 @@
   }
 
   &__ability {
-    @include rect_button(30px,$dark_blue,$sans,$white,16px,$norm);
+    @include rect_button(30px,$dark_blue,$sans,$white,17px,$bold);
     display: inline-block;
     text-transform: capitalize;
     margin: 0 2% 15px 2%;
     width: 46%;
+    opacity: .7;
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &:active {
+      opacity: 1;
+    }
   }
 
   &__ico {
     font-size: 28px;
-    display: block;
     margin: 0 5% 10px;
+    cursor: pointer;
+    opacity: .5;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
+

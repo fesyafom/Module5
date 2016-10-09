@@ -1,8 +1,45 @@
 .info {
   float: left;
   box-sizing: border-box;
-  width: 30%;
-  border: 1px solid black;
-  height: 500px;
-  margin-top: 8%;
+  width: 40%;
+  margin-top: 30%;
+
+  &-content {
+    border: 1px solid black;
+    width: 90%;
+    float: left;
+    box-sizing: border-box;
+    margin: 5%;
+
+    &__img {
+      border: 1px solid black;
+      display: block;
+      margin: 5% auto;
+      width: 90%;
+    }
+
+    &__name {
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
+
+.table {
+  margin: 5% auto;
+  width: 90%;
+  border-collapse: collapse;
+
+  &__cell {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 17px;
+    width: 50%;
+  }
+
+  &__type {
+    text-transform: capitalize;
+    margin-right: 10px;
+  }
 }

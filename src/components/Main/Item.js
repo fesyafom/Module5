@@ -42,8 +42,8 @@ class Item extends Component {
 
 function mapStateToProps (state) {
     return	{
-        isSelected: state.main.isSelected,
-        isLiked: state.main.isLiked
+        isSelected: state.oneItem.isSelected,
+        isLiked: state.likes.isLiked
     }
 }
 

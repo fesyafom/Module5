@@ -1,5 +1,6 @@
 .item_active {
-  background-color: green;
+  border: 1px solid white;
+  outline: 4px solid green
 }
 
 .active {
@@ -7,4 +8,29 @@
   padding: 5px;
   border: 1px solid white;
   border-radius: 5px;
+}
+
+.tab_active {
+  margin-bottom: -1px;
+  border-bottom: none;
+}
+
+.btn-yellow {
+  background-color: khaki;
+}
+
+.btn-blue {
+  background-color: lightskyblue;
+}
+
+.btn-green {
+  background-color: palegreen;
+}
+
+.btn-red {
+  background-color: indianred ;
+}
+
+.btn-gray {
+  background-color: gray;
 }

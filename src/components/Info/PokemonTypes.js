@@ -7,7 +7,7 @@ export default class PokemonTypes extends Component {
         if (data.length > 0) {
             pokemonTypes = data.map(function (item, index) {
                 return (
-                    <span key={index}>{item.name}</span>
+                    <span className="table__type" key={index}>{item.name}</span>
                 )
             })
         } else {

@@ -2,38 +2,34 @@ import {
     GET_POKEMONS_REQUEST,
     GET_POKEMONS_SUCCESS,
     GET_POKEMONS_FAIL,
-    GET_POKEMON_REQUEST,
-    GET_POKEMON_SUCCESS,
-    GET_POKEMON_FAIL,
-    SELECT_POKEMON,
-    LIKE_POKEMON,
-    UNLIKE_POKEMON
+    FILTER_BY_TYPE
 } from '../constants/Main'
 
 const initialState = {
-    data: {},
-    pokemon_info: {},
-    isSelected: 0,
-    isLiked: []
+    data: [],
+    loaded: false,
+    activeTab: 0
 };
 
 export default function main(state = initialState, action) {
     switch (action.type) {
         case    GET_POKEMONS_REQUEST:
-            return {...state};
+            return {...state, ...{activeTab: action.payload}};
         case    GET_POKEMONS_SUCCESS:
-            return {...state, ...{data: action.payload}};
-        case    SELECT_POKEMON:
-            return {...state, ...{isSelected: action.payload}};
-        case    GET_POKEMON_REQUEST:
-            return {...state};
-        case    GET_POKEMON_SUCCESS:
-            return {...state, ...{pokemon_info: action.payload}};
-        case    LIKE_POKEMON:
-            return {...state, ...{isLiked: state.isLiked.concat(action.payload)}};
-        case    UNLIKE_POKEMON:
-            return {...state, ...{isLiked: state.isLiked.filter(item => item !== action.payload)}};
+            return {...state, ...{data: action.payload, loaded: true}};
+        case    FILTER_BY_TYPE:
+            return {...state, ...{data: state.data.filter(item => filterByType(item, action.payload))}};
         default:
             return state;
     }
+}
+
+
+function filterByType (item,value) {
+        for(let i = 0; i < item.types.length; i++) {
+            if (item.types[i].name === value) {
+                return true;
+            }
+        }
+    return false;
 }

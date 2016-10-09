@@ -3,13 +3,11 @@ import {
     GET_POKEMON_SUCCESS,
     GET_POKEMON_FAIL,
     SELECT_POKEMON,
-} from '../constants/Main'
+} from '../constants/OneItem'
 
 const initialState = {
-    data: {},
     pokemon_info: {},
-    isSelected: 0,
-    isLiked: []
+    isSelected: 0
 };
 
 export default function main(state = initialState, action) {

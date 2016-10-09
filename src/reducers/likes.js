@@ -1,12 +1,9 @@
 import {
     LIKE_POKEMON,
     UNLIKE_POKEMON
-} from '../constants/Main'
+} from '../constants/Likes'
 
 const initialState = {
-    data: {},
-    pokemon_info: {},
-    isSelected: 0,
     isLiked: []
 };
 

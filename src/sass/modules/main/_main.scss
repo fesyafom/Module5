@@ -32,7 +32,7 @@
     }
   }
 
-  &__lead_more {
+  &__load_more {
     @include rect_button(50px,$dark_blue,$sans,$white,25px,$bold);
     text-transform: capitalize;
     margin: 0 auto 25px auto;

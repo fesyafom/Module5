@@ -14,7 +14,7 @@ class Main extends Component {
         this.props.pageActions.getLikes();
     }
     
-    leadMore(e) {
+    loadMore(e) {
         e.preventDefault();
         this.props.pageActions.getAdditionalInfo(URL_ONE_POKEMONE + this.props.isSelected + "/");
         
@@ -64,10 +64,10 @@ class Main extends Component {
                 <ul className="main-pokemon_list">
                     {pokemonsTemplate}
                 </ul>
-                <button className="main__lead_more"
-                        onClick={this.leadMore.bind(this)}
+                <button className="main__load_more"
+                        onClick={this.loadMore.bind(this)}
                         disabled={this.props.isSelected === 0}
-                >Lead More
+                >Load More
                 </button>
             </div>
         )

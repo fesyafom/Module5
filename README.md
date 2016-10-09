@@ -12,4 +12,8 @@ RUN PROJECT
 
 BUILD PROJECT
 ------------------------------------------------------------------------
-`webpack` for buld project
+`webpack` if you want to rebuild the project
+
+SOURCES
+------------------------------------------------------------------------
+information sources are switched in the file /src/constants/Sources.js

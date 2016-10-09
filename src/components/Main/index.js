@@ -14,17 +14,18 @@ class Main extends Component {
         this.props.pageActions.getLikes();
     }
     
-    onClickHandler(e) {
+    leadMore(e) {
         e.preventDefault();
         this.props.pageActions.getAdditionalInfo(URL_ONE_POKEMONE + this.props.isSelected + "/");
+        
     }
 
-    GetAllPokemons(e) {
+    getAllPokemons(e) {
         e.preventDefault();
         this.props.pageActions.getPokemonsList(URL_POKEMONES_LIST);
     }
     
-    GetLikedPokemons(e) {
+    getLikedPokemons(e) {
         e.preventDefault();
         this.props.pageActions.getPokemonsList();
     }
@@ -42,7 +43,7 @@ class Main extends Component {
                 )
             })
         } else {
-            pokemonsTemplate = <li >К сожалению покемонов нет</li>
+            pokemonsTemplate = <li className="main-pokemon_list__empty">Unfortunately no Pokemons</li>
         }
 
         return (
@@ -50,12 +51,12 @@ class Main extends Component {
                 <div className="main-tab">
                     <button 
                             className={"main-tab__button " + (this.props.activeTab === 0 ? 'tab_active':'')}
-                            onClick={this.GetAllPokemons.bind(this)}
+                            onClick={this.getAllPokemons.bind(this)}
                     >All Pokemons
                     </button>
                     <button
                             className={"main-tab__button " + (this.props.activeTab === 1 ? 'tab_active':'')}
-                            onClick={this.GetLikedPokemons.bind(this)}
+                            onClick={this.getLikedPokemons.bind(this)}
                     >Only Liked
                     </button> 
                 </div>
@@ -64,7 +65,8 @@ class Main extends Component {
                     {pokemonsTemplate}
                 </ul>
                 <button className="main__lead_more"
-                        onClick={this.onClickHandler.bind(this)}
+                        onClick={this.leadMore.bind(this)}
+                        disabled={this.props.isSelected === 0}
                 >Lead More
                 </button>
             </div>
